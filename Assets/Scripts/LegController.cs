@@ -6,6 +6,10 @@ public class LegController : MonoBehaviour
 {
     [SerializeField]
     private Transform legTarget;
+    [SerializeField]
+    private Transform oppositeLeg;
+    [SerializeField]
+    private float heightRise = 1f;
 
     [SerializeField]
     private float distanceTreshold = 1.5f;
@@ -13,7 +17,7 @@ public class LegController : MonoBehaviour
     private float speed = 5f;
     private float distance = 0;
     private bool distanceTresholdExceeded = false;
-    private bool firstHalfOver = false;
+
 
     void Start()
     {
@@ -35,7 +39,7 @@ public class LegController : MonoBehaviour
 
         distance = Vector3.Distance(transform.position, legTarget.position);
 
-        if (distance > distanceTreshold)
+        if (distance > distanceTreshold && IsOppositeGrounded())
         {
             distanceTresholdExceeded = true;
         }
@@ -43,18 +47,27 @@ public class LegController : MonoBehaviour
         //move the leg
         if (distanceTresholdExceeded)
         {
-            float step =  speed * Time.deltaTime; // calculate distance to move
-            var targetPosition = Vector3.MoveTowards(legTarget.position, transform.position, step);
-
-            //todo: add upwards vector for the first half
+            float step =  speed * Time.deltaTime;
+            var targetPosition = Vector3.MoveTowards(legTarget.position, transform.position + new Vector3(0,((distance / distanceTreshold)/2) * heightRise, 0), step);
 
             legTarget.position = targetPosition;
 
             if (distance < 0.1f)
             {
                 distanceTresholdExceeded = false;
-                firstHalfOver = false;
             }
         }
+    }
+
+    private bool IsOppositeGrounded()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(oppositeLeg.position, -Vector3.up, out hit)) {
+            if (hit.transform.tag == "Walkable")
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
