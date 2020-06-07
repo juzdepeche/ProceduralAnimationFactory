@@ -514,10 +514,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   legTarget: {fileID: 597095348}
-  oppositeLeg: {fileID: 1582909099}
+  oppositeLeg: {fileID: 1470785867}
   heightRise: 2
   distanceTreshold: 1.5
   speed: 20
+  DistanceTresholdExceeded: 0
 --- !u!135 &336227070
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -781,16 +782,16 @@ MonoBehaviour:
   Legs:
   - id: 1
     side: 1
-    foot: {fileID: 1025462939}
+    foot: {fileID: 1183599750}
   - id: 2
     side: 1
-    foot: {fileID: 2003503044}
+    foot: {fileID: 597095348}
   - id: 1
     side: 0
-    foot: {fileID: 1843725792}
+    foot: {fileID: 1059747074}
   - id: 2
     side: 0
-    foot: {fileID: 1582909099}
+    foot: {fileID: 1187962359}
   maxZAxisRotationOffset: 25
 --- !u!1 &597095344
 GameObject:
@@ -965,7 +966,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 7.68e-43, y: 4.9e-44, z: 0, w: 4.795955e-10}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 2.75508e-40, w: -7.61e-43}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1313,12 +1314,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1022591962}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1025462939 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -7998602493138837305, guid: 1d7264a83148d4c44abeb1a6f299d65b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1022591962}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1025462940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1477,10 +1472,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   legTarget: {fileID: 1059747074}
-  oppositeLeg: {fileID: 1025462939}
+  oppositeLeg: {fileID: 1139510781}
   heightRise: 2
   distanceTreshold: 1.5
   speed: 20
+  DistanceTresholdExceeded: 0
 --- !u!135 &1080426296
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1681,10 +1677,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   legTarget: {fileID: 1183599750}
-  oppositeLeg: {fileID: 1843725792}
+  oppositeLeg: {fileID: 1080426295}
   heightRise: 2
   distanceTreshold: 1.5
   speed: 20
+  DistanceTresholdExceeded: 0
 --- !u!135 &1139510782
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2019,10 +2016,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   legTarget: {fileID: 1187962359}
-  oppositeLeg: {fileID: 2003503044}
+  oppositeLeg: {fileID: 336227069}
   heightRise: 2
   distanceTreshold: 1.5
   speed: 20
+  DistanceTresholdExceeded: 0
 --- !u!135 &1470785868
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2092,12 +2090,6 @@ Transform:
 --- !u!1 &1582909098 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5121673773502964920, guid: 1d7264a83148d4c44abeb1a6f299d65b,
-    type: 3}
-  m_PrefabInstance: {fileID: 228369777}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1582909099 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -7998602493138837305, guid: 1d7264a83148d4c44abeb1a6f299d65b,
     type: 3}
   m_PrefabInstance: {fileID: 228369777}
   m_PrefabAsset: {fileID: 0}
@@ -2258,12 +2250,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 841641710}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1843725792 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -7998602493138837305, guid: 1d7264a83148d4c44abeb1a6f299d65b,
-    type: 3}
-  m_PrefabInstance: {fileID: 841641710}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1843725793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2285,12 +2271,6 @@ MonoBehaviour:
 --- !u!1 &2003503043 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5121673773502964920, guid: 1d7264a83148d4c44abeb1a6f299d65b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1203749}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2003503044 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -7998602493138837305, guid: 1d7264a83148d4c44abeb1a6f299d65b,
     type: 3}
   m_PrefabInstance: {fileID: 1203749}
   m_PrefabAsset: {fileID: 0}
