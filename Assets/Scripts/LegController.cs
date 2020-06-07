@@ -29,11 +29,10 @@ public class LegController : MonoBehaviour
     {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -Vector3.up, out hit)) {
-            // offsetDistance = hit.distance;
             if (hit.transform.tag == "Walkable")
             {
-                Debug.DrawLine (transform.position, hit.point, Color.cyan);
-                transform.position = hit.point + new Vector3(0, 0.05f, 0);
+                Debug.DrawLine(transform.position, hit.point, Color.cyan);
+                transform.position = hit.point + new Vector3(0, 0.2f, 0);
             }
         }
 
