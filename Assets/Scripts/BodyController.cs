@@ -21,14 +21,16 @@ public class Leg
 public class BodyController : MonoBehaviour
 {
     [SerializeField]
-    private Leg[] Legs; 
+    private Leg[] Legs;
     [SerializeField]
     private float maxZAxisRotationOffset; 
+    private Transform bodyTransform;
     private float startHeightAboveGround;
     private float currentHeightAboveGround;
     // Start is called before the first frame update
     void Start()
     {
+        bodyTransform = transform.Find("Body");
         startHeightAboveGround = GetHeightAboveGround();
     }
 
@@ -72,13 +74,10 @@ public class BodyController : MonoBehaviour
         float rightHeightAverage = rightHeightSum / rightLegs.Count();
 
         float difference = rightHeightAverage - leftHeightAverage;
-        float ratio = leftHeightAverage / rightHeightAverage;
+        float ratio = difference / rightHeightAverage;
+        float angle = difference * maxZAxisRotationOffset;
 
-        Vector3 rotationVector = new Vector3(transform.rotation.x, transform.rotation.y, difference * ratio * maxZAxisRotationOffset);
-        transform.rotation = Quaternion.Euler(rotationVector);
-
-        // float radians = Mathf.Atan2(leftHeightAverage, rightHeightAverage);
-        // float angle = radians * (180/Mathf.PI);
-
+        Vector3 currentRotation = transform.rotation.eulerAngles;
+        bodyTransform.rotation = Quaternion.Euler(currentRotation.x, currentRotation.y, angle);
     }
 }
