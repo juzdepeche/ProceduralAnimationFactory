@@ -23,6 +23,8 @@ public class BodyController : MonoBehaviour
     [SerializeField]
     private Leg[] Legs;
     [SerializeField]
+    private float speed; 
+    [SerializeField]
     private float maxZAxisRotationOffset; 
     private Transform bodyTransform;
     private float startHeightAboveGround;
@@ -38,7 +40,7 @@ public class BodyController : MonoBehaviour
     void Update()
     {
         currentHeightAboveGround = GetHeightAboveGround();
-
+        Move();
         BalanceRotation();
     }
 
@@ -50,6 +52,14 @@ public class BodyController : MonoBehaviour
             return hit.distance;
         }
         return 0;
+    }
+
+    private void Move()
+    {
+        Vector3 moveDirection = new Vector3(0f, 0f, Input.GetAxis("Vertical"));
+        moveDirection *= speed;
+
+        transform.position += moveDirection;
     }
 
     private void BalanceRotation()
