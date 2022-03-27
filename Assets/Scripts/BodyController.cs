@@ -20,24 +20,21 @@ public class Leg
 
 public class BodyController : MonoBehaviour
 {
-    [SerializeField]
-    private Leg[] Legs;
-    [SerializeField]
-    private float speed; 
-    [SerializeField]
-    private float maxZAxisRotationOffset; 
-    private Transform bodyTransform;
+    [SerializeField] private Leg[] Legs;
+    [SerializeField] private float speed;
+    [SerializeField] private float maxZAxisRotationOffset;
+    [SerializeField] private Transform bodyTransform;
     private float startHeightAboveGround;
     private float currentHeightAboveGround;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        bodyTransform = transform.Find("Body");
         startHeightAboveGround = GetHeightAboveGround();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         currentHeightAboveGround = GetHeightAboveGround();
         Move();
@@ -47,7 +44,7 @@ public class BodyController : MonoBehaviour
     private float GetHeightAboveGround()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection (Vector3.down), out hit))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit))
         {
             return hit.distance;
         }
